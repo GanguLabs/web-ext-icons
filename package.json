@@ -26,7 +26,6 @@
 	"homepage": "https://github.com/GanguLabs/web-ext-icons#readme",
 	"dependencies": {
 		"esm": "^3.2.25",
-		"rimraf": "^3.0.2",
 		"sharp": "^0.30.7"
 	}
 }

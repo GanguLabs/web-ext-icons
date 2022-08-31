@@ -1,4 +1,4 @@
-import rimraf from "rimraf";
+// import rimraf from "rimraf"; // rimraf is uninstalled
 import fs from 'fs';
 import path from 'path';
 import sharp from 'sharp';
@@ -19,15 +19,19 @@ const create = (sourceFile, destinationPath, s) => {
 }
 
 export async function resize(sourceFile, destinationPath, sizes) {
-    destinationPath = path.join(destinationPath, "web-ext-icons")
-    await new Promise((rs, rj) =>
-        rimraf(destinationPath, { disableGlob: true }, () => rs())
-    );
+    // console.log(path.resolve(sourceFile));
+    // destinationPath = path.join(destinationPath, "web-ext-icons")
+
+    // await new Promise((rs, rj) =>
+    // uninstalling rimraf because all the files and folders in destination are being deleted without any prompt
+    //     rimraf(destinationPath, { disableGlob: true }, () => rs())
+    // );
+
     if (!fs.existsSync(destinationPath)) {
         fs.mkdirSync(destinationPath);
     }
     await Promise.all(sizes.map((s) => create(sourceFile, destinationPath, s)))
         .then(
-            console.log("Resized files to this location: " + destinationPath)
+            console.log("Resized files to this location: " + path.resolve(destinationPath))
         );
 };
