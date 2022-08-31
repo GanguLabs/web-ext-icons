@@ -1,11 +1,10 @@
-const rimraf = require("rimraf");
-var fs = require("fs");
-const sharp = require("sharp");
-const [, , ...args] = process.argv;
-const [sourceFile, destinationPath] = args;
-const fileName = sourceFile.split("/").slice(-1)[0].split(".")[0];
-const sizes = [16, 32, 48, 128];
-const create = (s) =>
+import rimraf from "rimraf";
+import fs from 'fs';
+import path from 'path';
+import sharp from 'sharp';
+
+const create = (sourceFile, destinationPath, s) => {
+    const fileName = path.parse(sourceFile).name;
     new Promise((rs, rj) => {
         sharp(sourceFile)
             .rotate()
@@ -16,15 +15,14 @@ const create = (s) =>
                 rj(e);
             });
     });
+}
 
-const cli = async () => {
+export async function resize(sourceFile, destinationPath, sizes) {
     await new Promise((rs, rj) =>
         rimraf(destinationPath, { disableGlob: true }, () => rs())
     );
     if (!fs.existsSync(destinationPath)) {
         fs.mkdirSync(destinationPath);
     }
-    await Promise.all(sizes.map((s) => create(s)));
+    await Promise.all(sizes.map((s) => create(sourceFile, destinationPath, s)));
 };
-
-cli();
