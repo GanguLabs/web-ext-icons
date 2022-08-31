@@ -1,0 +1,22 @@
+{
+	"name": "web-ext-icons",
+	"version": "0.0.1",
+	"description": "Generate icons for various sizes for your Web Extension.",
+	"main": "cli.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/GanguLabs/web-ext-icons.git"
+	},
+	"keywords": [
+		"web-ext"
+	],
+	"author": "Anwesh Gangula",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/GanguLabs/web-ext-icons/issues"
+	},
+	"homepage": "https://github.com/GanguLabs/web-ext-icons#readme"
+}
