@@ -1,7 +1,7 @@
-// import rimraf from "rimraf"; // rimraf is uninstalled
-import fs from 'fs';
-import path from 'path';
-import sharp from 'sharp';
+// const rimraf = require("rimraf"); // rimraf is uninstalled
+var fs = require("fs");
+var path = require('path');
+const sharp = require("sharp");
 
 const create = (sourceFile, destinationPath, s) => {
     const fileName = path.parse(sourceFile).name;
@@ -18,7 +18,7 @@ const create = (sourceFile, destinationPath, s) => {
     });
 }
 
-export async function resize(sourceFile, destinationPath, sizes) {
+async function resize(sourceFile, destinationPath, sizes) {
     // console.log(path.resolve(sourceFile));
     // destinationPath = path.join(destinationPath, "web-ext-icons")
 
@@ -35,3 +35,5 @@ export async function resize(sourceFile, destinationPath, sizes) {
             console.log("Resized files to this location: " + path.resolve(destinationPath))
         );
 };
+
+module.exports = resize;

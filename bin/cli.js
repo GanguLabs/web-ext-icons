@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-require = require('esm')(module /*, options*/);
-const index = require('../src/index');
+// require = require('esm')(module /*, options*/); // uninstalled esm
+const resize = require('../src/index');
 
 const [, , ...args] = process.argv;
 const [sourceFile, destinationPath] = args;
-const sizes = [16, 32, 48, 128];
+const sizes = [16, 19, 32, 38, 48, 64, 96, 128, 256, 512];
 
-index.resize(sourceFile, destinationPath, sizes)
+resize(sourceFile, destinationPath, sizes)
