@@ -4,7 +4,7 @@
 	"description": "Generate icons for various sizes for your Web Extension.",
 	"main": "src/index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "node bin/cli.js \"dist/Test_Src/512.png\" \"dist/Test_Dest/\""
 	},
 	"bin": {
 		"@anweshg/web-ext-icons": "bin/cli.js",

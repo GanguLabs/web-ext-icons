@@ -1,3 +1,5 @@
+// `npm run test` to run a test
+
 // const rimraf = require("rimraf"); // rimraf is uninstalled
 var fs = require("fs");
 var path = require('path');
